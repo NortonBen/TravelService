@@ -1,80 +1,84 @@
 FORMAT: 1A
 HOST: http://polls.apiblueprint.org/
 
-# travelAPI
+# Travel API
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+API Travel Service
 
-## Questions Collection [/questions]
+## Authentication [/]
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
+### Login [POST /login]
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "username": "user",
+            "password": "1234"
         }
 
+    
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+        {
+            "token": "ghsogsgsodg",
+            "data": {
+                "username": "user",
+                "profile": {
+                    "address": "Ha nam",
+                    "birthday": "1/2/2000",
+                },
+                "phone": "0964056932",
+                "have_message": false,
+                "notification": 2,
             }
+        }
+        
+### Register [POST /register]
++ Request (application/json)
+
+        {
+            "username": "user",
+            "password": "1234",
+            "repassword": "1234",
+            "phone": "0964056932",
+            "address": "ha Nam",
+            "birdthay": "",
+        }
+
+    
++ Response 201 (application/json)
+
+        {
+            "token": "ghsogsgsodg",
+            "data": {
+                "username": "user",
+                "profile": {
+                    "address": "Ha nam",
+                    "birthday": "1/2/2000",
+                },
+                "phone": "0964056932",
+                "have_message": false,
+                "notification": 2,
+            }
+        }
+        
+### Login Token [POST /login/token]
++ Request (application/json)
+    + Header
+        Authentication : "Bear dfdghdg"
+      
+    
++ Response 201 (application/json)
+
+        {
+            "token": "ghsogsgsodg",
+            "data": {
+                "username": "user",
+                "profile": {
+                    "address": "Ha nam",
+                    "birthday": "1/2/2000",
+                },
+                "phone": "0964056932",
+                "have_message": false,
+                "notification": 2,
+            }
+        }
