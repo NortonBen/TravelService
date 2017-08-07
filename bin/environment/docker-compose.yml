@@ -1,0 +1,19 @@
+version: '2'
+services:
+  redis:
+    image: redis:3.2.5-alpine
+    volumes:
+      - "./data:${TRAVEL_DATA_ROOT_DIR}/redis/data"
+    ports:
+      - "6379:6379"
+  mongodb:
+        image: mongo:latest
+        environment:
+          - MONGO_DATA_DIR=/data/db
+          - MONGO_LOG_DIR=/data/log
+          - MONGODB_DATABASE="travelApp"          
+        volumes:
+          - ./data/db:${TRAVEL_DATA_ROOT_DIR}/mongoDB/data/db
+          - ./data/log:${TRAVEL_DATA_ROOT_DIR}/mongoDB/log
+        ports:
+            - 27017:27017
