@@ -1,5 +1,9 @@
 'use strict'
 
+const MongoSerializer = require('../app/MongoSerializer')
+
+const Ioc = use('adonis-fold').Ioc
+
 /*
 |--------------------------------------------------------------------------
 | Extend Providers
@@ -19,3 +23,7 @@
 | })
 |
 */
+
+Ioc.extend('Adonis/Src/AuthManager', 'mongo', function (app) {
+  return new MongoSerializer()
+}, 'serializer')

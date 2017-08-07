@@ -8,11 +8,11 @@
 |
 */
 
-const app = require('../bootstrap/app')
+const app = require('./app')
 const fold = require('adonis-fold')
 const path = require('path')
 const packageFile = path.join(__dirname, '../package.json')
-require('../bootstrap/extend')
+require('./extend')
 
 module.exports = function (callback) {
   fold.Registrar

@@ -9,6 +9,21 @@
 |
 */
 
+const bootstrap = require('../bootstrap/test')
+process.env.ENV_PATH = '.env.test'
+
+let fireServer = true
+
+console.info('-------------- boostrap adonis --------------')
+bootstrap(function * (Server) {
+  if (fireServer) {
+      Server.listen(process.env.HOST, process.env.PORT)
+  }
+  if (fireServer) {
+      Server.getInstance().close()
+  }
+})
+
 const Ioc = use('adonis-fold').Ioc
 
 /**
