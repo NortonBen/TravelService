@@ -30,7 +30,7 @@ class MongoSerializer {
   }
 
   * saveToken (userPayload, token, options, expiry) {
-    console.log(userPayload, token, options)
+    console.log('save Token',userPayload, token, options)
   }
 
   * revokeTokens (userPayload, tokens, reverse) {

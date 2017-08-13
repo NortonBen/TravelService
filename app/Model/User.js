@@ -69,7 +69,7 @@ let userSchema = mongoose.Schema({
     password: {
         type: String,
         min: 4,
-        max: 20,
+        max: 256,
         required: true
     },
     username: {

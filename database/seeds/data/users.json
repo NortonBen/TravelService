@@ -1,0 +1,50 @@
+[
+    {
+        "username": "admin",
+        "password": "123",
+        "phone" : "0964056932",
+        "emails": [
+            {
+               "mail": "norton0395@gmail.com",
+               "tokenAccess": "",
+               "access": true
+            }
+        ],
+        "profile" : {
+            "address": "Ha Nam"
+        },
+        "token": []
+    },
+    {
+        "username": "user",
+        "password": "123",
+        "phone" : "0964056932",
+        "emails": [
+            {
+               "mail": "norton0395@gmail.com",
+               "tokenAccess": "",
+               "access": true
+            }
+        ],
+        "profile" : {
+            "address": "Ha Nam"
+        },
+        "token": []
+    },
+    {
+        "username": "user1",
+        "password": "123",
+        "phone" : "0964056932",
+        "emails": [
+            {
+               "mail": "norton0395@gmail.com",
+               "tokenAccess": "",
+               "access": true
+            }
+        ],
+        "profile" : {
+            "address": "Ha Nam"
+        },
+        "token": []
+    }
+]
