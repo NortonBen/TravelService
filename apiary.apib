@@ -5,6 +5,8 @@ HOST: http://polls.apiblueprint.org/
 
 API Travel Service
 
+
+
 ## Authentication [/]
 
 ### Login [POST /login]
@@ -82,3 +84,965 @@ API Travel Service
                 "notification": 2,
             }
         }
+
+
+
+## Collection Route [/api/routes]
+
+### List routes [GET ]
++ Request (application/json)
+    + Parameters
+            site:
+            skip: 
+            limit:
+            days:
+            count:
+            sort: 
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [RoutesDataList]
+        }
+
+### Get route [GET /api/routes/{$routeID}]
++ Parameters
+    $routeID: 0
+        
++ Request (application/json)
+
+    
++Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (RoutesData)
+        }
+        
+### Get route comments [GET /api/routes/{$routeID}/comments]
++ Parameters
+    $routeID:
+        
++ Request (application/json)
+
+    
++Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (RoutesData)
+        }
+
+### Create route comments [POST /api/routes/{$routeID}/comments]
++ Parameters
+    $routeID:
+        
++ Request (application/json)
+
+        { 
+            "routesID": "as",
+            "text": "text"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+
+### Get detail Day in route  [GET /api/routes/{$routeID}/day/{$day}]
++ Parameters
+    $routeID: // route id
+    $day: // day
+        
++ Request (application/json)
+
+    
++Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (DetailDayRouteData)
+        }
+        
+### Create route [POST ]
++ Request (application/json)
+
+        {
+            "starSite": "site0",
+            "endSite": "site1",
+            "days": [
+                {
+                    "name": "Ngay 1",
+                    "point": [
+                        {
+                            "name": "bat day",
+                            "type": "start",
+                            "site": "site21",
+                        }
+                    ],
+                    "directions": [
+                        {
+                            coordinates: [10,10],
+                            type: 0
+                        }
+                    ]
+                }
+            ],
+            "cost": {
+                "undefinder": false,
+                "eat": 0
+                "hotel":  0
+                "come":  0
+               "incurred": 0
+            }
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (RoutesData)
+        }
+
+### Update route [PUT /api/routes/{$routeID}]
++ Parameters
+    $routeID:
++ Request (application/json)
+
+        {
+            "starSite": "site0",
+            "endSite": "site1",
+            "days": [
+                {
+                    "name": "Ngay 1",
+                    "point": [
+                        {
+                            "name": "bat day",
+                            "type": "start",
+                            "site": "site21",
+                        }
+                    ],
+                    "directions": [
+                        {
+                            coordinates: [10,10],
+                            type: 0
+                        }
+                    ]
+                }
+            ],
+            "cost": {
+                "undefinder": false,
+                "eat": 0
+                "hotel":  0
+                "come":  0
+               "incurred": 0
+            }
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (RoutesData)
+        }
+        
+### Delete route [DELETE /api/routes/{$routeID}]
++ Parameters
+    $routeID:
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+        
+### Like route [POST /api/routes/{$routeID}/like]
++ Parameters
+    $routeID:
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+
+
+
+## Collection Site [/api/sites]
+
+### List Site [GET]
++ Parameters
+    site:
+    skip: 
+    limit:
+    days:
+    priven
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [SiteDataList]
+        }
+
+### Get Site [GET /api/sites/{$siteID}]
++ Parameters
+    $siteID: 0
+        
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (SiteDetaiData)
+        }
+        
+### Get Site comments [GET /api/sites/{$siteID}/comments]
++ Parameters
+    $siteID: 0
+        
++ Request (application/json)
+
+    
++Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+
+### Create Site comments [POST /api/sites/{$siteID}/comments]
++ Parameters
+    $routeID:
+        
++ Request (application/json)
+
+        { 
+            "routesID": "as",
+            "text": "text"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+
+### Create Site [POST ]
++ Request (application/json)
+
+        {
+            "address": "site0",
+            "name": "site1",
+            "type": ""
+            "location": {
+                "logtitude": 0,
+                "latitude": 0
+            },
+            "photo": [],
+            "province": "4354",
+            "detail": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (SiteDetaiData)
+        }
+
+### Update Site [PATCH /api/sites/{$siteID}]
++ Request (application/json)
+
+        {
+            "name": "asd"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (SiteDetaiData)
+        }
+        
+### Delete Site [DELETE /api/sites/{$siteID}]
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+### Like Site [POST /api/sites/{$siteID}/like]
++ Parameters
+    $routeID:
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+
+
+
+## Collection User [/api/users]
+
+### Get List User [GET ]
++ Parameters
+    site:
+    skip: 
+    limit:
+    name:
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [UserData]
+        }
+
+### 
+
+### Get User [GET /api/users/{$userID}]
++ Parameters
+    $userID: 0
+        
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {
+                "username": "ads",
+                "phone": "097",
+                "profile": {
+                    "avatar": "dfasf",
+                    "birthday": "afas",
+                    "address": "ads",
+                    "detail": "adf"
+                }
+            }
+        }
+
+### Create Post  comments [POST /api/post/{$postID}/comments]
++ Parameters
+    $postID:
+        
++ Request (application/json)
+
+        { 
+            "routesID": "as",
+            "text": "text"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+
+### Update Profile [PATCH ]
++ Request (application/json)
+        
+        {
+            "profile": {
+                "address": "af",
+            }
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {
+                "username": "ads",
+                "phone": "097",
+                "profile": {
+                    "avatar": "dfasf",
+                    "birthday": "afas",
+                    "address": "ads",
+                    "detail": "adf"
+                }
+            }
+        }
+
+
+
+## Collection Post [/api/posts]
+
+### Get List Post of User [GET /api/{$userID}/post ]
++ Parameters
+    site:
+    skip: 
+    limit:
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [LitPostData]
+        }
+
+### Get Post of User [GET /api/{$userID}/post/{$postID} ]
++ Parameters
+    site:
+    skip: 
+    limit:
+    $postID: 
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [PostData]
+        }
++ Parameters
+    $postID: 0
+        
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {
+                "username": "ads",
+                "phone": "097",
+                "profile": {
+                    "avatar": "dfasf",
+                    "birthday": "afas",
+                    "address": "ads",
+                    "detail": "adf"
+                }
+            }
+        }
+        
+### Like Post [POST /api/posts/{$siteID}/like]
++ Parameters
+    $routeID:
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+### Get Post comments [GET /api/posts/{$postID}/comments]
++ Parameters
+    $postID: 0
+        
++ Request (application/json)
+
+    
++Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+
+
+
+## Collection Travel [/api/travels]
+
+### List Travel [GET]
++ Parameters
+    site:
+    skip: 
+    limit:
+    days:
+    siteStart: 
+    siteEnd: 
+    startTime:
+    endTime: 
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [ListTravelData]
+        }
+
+### Get Travel [GET /api/travels/{$travelID}]
++ Parameters
+    $travelID: 0
+        
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (TravelData)
+        }
+        
+### Get Travel comments [GET /api/travels/{$travelID}/comments]
++ Parameters
+    $travelID: 0
+        
++ Request (application/json)
+
+    
++Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+
+### Create Travel comments [POST /api/travels/{$travelID}/comments]
++ Parameters
+    $travelID: 0
+        
++ Request (application/json)
+
+        { 
+            "routesID": "as",
+            "text": "text"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (CommentsData)
+        }
+        
+### Create Travel [POST ]
++ Request (application/json)
+
+        {
+            "startTime": "site0",
+            "name": "site1",
+            "endTime": ""
+            "route": "routeID"
+            "auto_access": true,
+            "public": true,
+            "province": "4354",
+            "detail": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (TravelData)
+        }
+
+### Update Travel [PATCH /api/travels/{$travelID}]
++ Request (application/json)
+
+        {
+            "name": "asd"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (TravelData)
+        }
+        
+### Delete Travel [DELETE /api/travels/{$travelID}]
++ Parameters
+    $travelID: 0
+
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+        
+### Like Travel [POST /api/travels/{$travelID}/like]
++ Parameters
+    $travelID:
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+
+
+## Collection Hotels [/api/hotels]
+
+### List Hotels [GET]
++ Parameters
+    skip: 0
+    limit:0 
+    province:0 
+    lotitude: 0
+    latitude: 0,
+    meter: 0,
+    star: 1
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [ListHotelsData]
+        }
+
+### Get Hotels [GET /api/hotels/{$hotelID}]
++ Parameters
+    $hotelID: 0
+        
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (HotelData)
+        }
+
+### Create Hotels [POST ]
++ Request (application/json)
+
+        {
+            "name": "site0",
+            "rooms": [
+                {
+                    "name": "",
+                    "star": 0,
+                    "cost": 2,
+                }
+            ],
+            "site": "sdf",
+            "phones": ["hdf"],
+            "detail": "sdfsd",
+            "address": ""
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (HotelData)
+        }
+
+### Update Hotels [PATCH /api/hotels/{$hotelID}]
++ Request (application/json)
+
+        {
+            "name": "asd"
+        }
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": (HotelData)
+        }
+        
+### Delete Hotels [DELETE /api/hotels/{$hotelID}]
++ Parameters
+    $hotelID: 0
+
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+
+
+## Collection Message [/api/messages]
+
+### Get List Message [GET ]
++ Parameters
+    skip: 0
+    limit:0
++ Request 
+  
+    
++Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [LitMessageData]
+        }
+
+### Get Message [GET /api/messages/{$userID}]
++ Parameters
+    skip: 0
+    limit:0
+    $userID: 0
+        
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "limit": 25,
+            "skip": 0,
+            "data": [MessageData]
+        }
+
+### Create Message [POST /api/message/{$userID} ]
++ Request (application/json)
+
+        {
+            "text": "asdsa"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": MessageData
+        }
+
+
+
+## Collection Comments 
+
+### Like Travel [POST /api/commments/{$commmentsID}/like]
++ Parameters
+    $commmentsID:
++ Request (application/json)
+
+    
++ Response 200 (application/json)
+
+        {
+            "success": true,
+            "message": "",
+            "data": {}
+        }
+
+# Data Struct
+
+## RoutesDataList
++ startSite (SiteData) (object, required)
++ endSite (SiteData) (object, required)
++ days: (required, number)
++ likes: (required, number)
++ cost: (required, number)
++ create_by (UserData) (object, required)
+
+## RoutesData
++ startSite (SiteData) (object, required)
++ endSite (SiteData) (object, required)
++ days: [(required, string)]
++ likes: (required, number)
++ cost: (CostRouteData) (object, required)
+
+
+## DayRouteData
++ name: (required, string)
++ points[PointData]
+
+## CostRouteData
++ undefinder: true  (required, boolean)
++ eat: 0 (required, number)
++ hotel: 0 (required, number)
++ come: 0 (required, number)
++ incurred:  0 (required, number)
+
+## DetailDayRouteData
++ name: (required, string)
++ points[PointData]
++ directions[Location]
+
+
+## SiteDataList
++ address: travel (required, string)
++ type: travel (required, string)
++ province (ProvinceData) (object, required)
++ visit: 0  (required, number)
+
+## ListTravelData 
++ name: 'sads' (required, string)
++ route (RoutesDataList) (object, required)
++ create_by (UserData) (object, required)
++ startTime: 'sads' (required, string)
++ endTime: 'sads' (required, string)
++ joinCount: 0 (required, number)
+
+## TravelData 
++ name: 'sads' (required, string)
++ route (RoutesData) (object, required)
++ create_by (UserData) (object, required)
++ startTime: 'sads' (required, string)
++ endTime: 'sads' (required, string)
++ joinCount: [UserData] (required, object)
+
+## ListHotelsData
++ name: "" (required, string)
++ site: 1 (required, number)
++ roomsCount:  0  (required, number)
++ likesCount:   0  (required, number)
++ phone: ['sdfsd']
+
+## HotelData
++ name: "" (required, string)
++ site (SiteData) (object, required)
++ rooms:  []  (required, array)
++ likesCount: 0  (required, number)
++ address: "dsfd",
++ detail: "asds",
++ phone: ['sdfsd']
+
+## LitMessageData
++ user: (UserData) (object, required)
++ message: [Message] (array, required)
+
+
+## LitPostData
++ type: "send" (required, string)
++ data: {}  (object, required)
++ likesCount:  0  (required, number)
+
+## PostData
++ type: "send" (required, string)
++ data: {}  (object, required)
++ likesCount:  0  (required, number)
+
+## Message
++ text: "" (required, string)
++ state: "send" (required, string)
++ Create_at: "" (required, string)
+
+## MessageData
++ user: (UserData) (object, required)
++ text: "" (required, string)
++ state: "send" (required, string)
++ Create_at: "" (required, string)
+
+
+## RoomData
++ name: "" (required, string)
++ star: 0  (required, number)
++ cost: 0  (required, number)
+
+## UserData 
++ phone: (required, string)
++ username: (required, string)
++ profile (ProfileData) (object, required)
+
+## SiteData
++ address:
++ type: 
++ province (ProvinceData) (object, required)
+
+## CommentsData
++ createBy (UserData) (object, required)
++ text: 'om' (required, string)
++ likes: 0 (required, number)
++ childrenComment: 0  (required, number)
+
+## ProvinceData
++ name: (required, string)
++ location : (Location, number)
+
+## Location
++ coordinates: [105, 21] (array, required)
++ type: Point (string, required)
+
+## ProfileData
++ avatar: ""  (required, string)
