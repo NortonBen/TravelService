@@ -58,13 +58,13 @@ const ProfileSchema = Schema({
         type: Date
     },
     detail: {
-        type: String, 
+        type: String,
          max: 2000,
     }
 }, {
     _id:  false
 });
- 
+
 let userSchema = mongoose.Schema({
     password: {
         type: String,
@@ -78,7 +78,7 @@ let userSchema = mongoose.Schema({
         max: 20,
         required: true
     },
-    phones: { 
+    phones: {
         type: String,
         max: 15,
         min: 6,

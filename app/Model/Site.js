@@ -7,8 +7,12 @@ const Hash = use('Hash')
 */
 const mongoose = use('Mongoose')
 
- 
+
 let SiteSchema = mongoose.Schema({
+    name:  {
+        type: String,
+        required: true,
+    },
     address: {
         type: String,
         required: true,

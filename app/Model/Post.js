@@ -13,7 +13,7 @@ const DataSchema = Schema({
         required: true
     },
     photo:[
-        { 
+        {
             type: String,
         }
     ],
@@ -29,7 +29,7 @@ const DataSchema = Schema({
     _id: false
 });
 
- 
+
 let PostSchema = mongoose.Schema({
     type: {
         type: String,

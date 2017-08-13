@@ -6,7 +6,7 @@
 const mongoose = use('Mongoose')
 
 const Schema = mongoose.Schema;
- 
+
 let TravelSchema = mongoose.Schema({
     route: {
         type: Schema.Types.ObjectId,
@@ -18,7 +18,15 @@ let TravelSchema = mongoose.Schema({
         required: true,
     },
     endTime: {
-         type: Date,
+        type: Date,
+        required: true,
+    },
+    name: {
+         type: String,
+        required: true,
+    },
+    detail: {
+        type: String,
         required: true,
     },
     detail: {
@@ -46,6 +54,11 @@ let TravelSchema = mongoose.Schema({
         ref: 'users',
     }],
     invite: [{
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'users',
+    }],
+    join: [{
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'users',

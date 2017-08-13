@@ -5,7 +5,7 @@
 */
 const mongoose = use('Mongoose')
 
- 
+
 let CommentSchema = mongoose.Schema({
     text: {
         type: String,
@@ -16,11 +16,11 @@ let CommentSchema = mongoose.Schema({
         required: true,
         ref: 'users',
     },
-    parentComment: {
+    childrents: [{
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'comments',
-    },
+    }],
     likes: [{
         type: Schema.Types.ObjectId,
         required: true,

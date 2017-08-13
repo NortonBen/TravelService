@@ -4,7 +4,7 @@
 */
 const mongoose = use('Mongoose')
 
- 
+
 let ProvinceSchema = mongoose.Schema({
     name: {
         type: String,
@@ -19,7 +19,7 @@ let ProvinceSchema = mongoose.Schema({
     detail: {
         type: String
     }
-}, { timestamps: { createdAt: 'created_at', updatedAt: 'Updated_at' } });
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
 // Hooks.HookSave(userSchema);
 

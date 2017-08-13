@@ -19,16 +19,16 @@ const texSchema = Schema({
 }, {
     _id: false,
     timestamps: { createdAt: 'created_at', updatedAt: 'Updated_at' }
-}); 
+});
 
- 
+
 let MessageSchema = mongoose.Schema({
     user: [{
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'users',
     }],
-   messages: [texSchema],
+    messages: [texSchema],
 }, { timestamps: { createdAt: 'created_at' } });
 // Hooks.HookSave(userSchema);
 

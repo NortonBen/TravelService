@@ -26,7 +26,7 @@ const rootSchema = Schema({
     _id:  false,
 });
 
- 
+
 let HotelSchema = mongoose.Schema({
     name: {
         type: String,
@@ -38,6 +38,12 @@ let HotelSchema = mongoose.Schema({
         ref: 'sites',
     },
     rooms: [rootSchema],
+    phones: [{
+        type: String
+    }],
+    address: {
+        type: String
+    },
     detail: {
         type: String
     },
