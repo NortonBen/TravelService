@@ -30,7 +30,9 @@ const providers = [
   'adonis-middleware/providers/AppMiddlewareProvider',
   'adonis-auth/providers/AuthManagerProvider',
   'adonis-websocket/providers/WsProvider',
-  'adonis-mongoose/providers/MongooseProvider' //add this line after install the package
+  'adonis-mongoose/providers/MongooseProvider', //add this line after install the package
+  'adonis-redis/providers/RedisFactoryProvider',
+  'adonis-redis/providers/RedisProvider',
 ]
 
 /*
@@ -78,7 +80,8 @@ const aliases = {
   Schema: 'Adonis/Src/Schema',
   View: 'Adonis/Src/View',
   Ws: 'Adonis/Addons/Ws',
-  Mongoose: 'Adonis/Addons/AdonisMongoose', //this line 
+  Mongoose: 'Adonis/Addons/AdonisMongoose', //this line
+  Redis: 'Adonis/Addons/Redis',
 }
 
 /*

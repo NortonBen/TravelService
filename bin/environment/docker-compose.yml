@@ -3,7 +3,7 @@ services:
   redis:
     image: redis:3.2.5-alpine
     volumes:
-      - "./data:${TRAVEL_DATA_ROOT_DIR}/redis/data"
+      - ${TRAVEL_DATA_ROOT_DIR}/redis/data:/data
     ports:
       - "6379:6379"
   mongodb:
@@ -11,9 +11,10 @@ services:
         environment:
           - MONGO_DATA_DIR=/data/db
           - MONGO_LOG_DIR=/data/log
-          - MONGODB_DATABASE="travelApp"          
+          - MONGODB_DATABASE="travelApp"
         volumes:
-          - ./data/db:${TRAVEL_DATA_ROOT_DIR}/mongoDB/data/db
-          - ./data/log:${TRAVEL_DATA_ROOT_DIR}/mongoDB/log
+          - ${TRAVEL_DATA_ROOT_DIR}/mongoDB/data/db:/data/db
+          - ${TRAVEL_DATA_ROOT_DIR}/mongoDB/log:/data/log
         ports:
             - 27017:27017
+        command: mongod --fork --logpath /data/log/mongodb.log
